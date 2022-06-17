@@ -1,0 +1,4 @@
+fdt addr ${fdt_addr} && fdt get value bootargs /chosen bootargs
+fatload mmc ${devnum}:${distro_bootpart} ${kernel_addr_r} @@KERNEL_IMAGETYPE@@
+setenv bootargs console=ttyS1,115200 root=/dev/mmcblk1p2 rw rootwait
+@@KERNEL_BOOTCMD@@ ${kernel_addr_r} - ${fdt_addr}
