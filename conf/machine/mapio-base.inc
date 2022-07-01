@@ -7,6 +7,9 @@ DISABLE_SPLASH = "1"
 
 RPI_CONFIG_STRIP = "1"
 
+# Enable USB 2.0 ports as host
+ENABLE_DWC2_HOST = "1"
+
 #
 # Bootloader
 #
