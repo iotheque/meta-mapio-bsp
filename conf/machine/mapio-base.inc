@@ -40,12 +40,12 @@ RPI_CONFIG_STRIP = "1"
 RPI_DEVICETREE = "bcm2711-rpi-cm4-io.dtb"
 
 # Where downloaded Raspberry bootfiles are extracted
-#BOOTFILES_DIR_NAME = "${MACHINE}-bootfiles"
+BOOTFILES_DIR_NAME = "${MACHINE}-bootfiles"
 
 # MAPIO_BOOT_FILES is similar to IMAGE_BOOT_FILES with separator ';' replaced
 # by ':'. ';' separator cannot be used in shell functions.
 MAPIO_BOOT_FILES = " \
-    bootfiles/config.txt \
+    ${BOOTFILES_DIR_NAME}/config.txt \
     boot.scr \
     Image \
     u-boot.bin \

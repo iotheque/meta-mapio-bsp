@@ -1,7 +1,16 @@
 inherit mapio-genimage
 
+DEPENDS:append = " \
+	rauc-native \
+    genext2fs-native \
+"
+
 # Boot partition size in MB.
 MAPIO_BOOT_SIZE ?= "64"
+
+fakeroot do_configure:prepend () {
+    sed -i s:@PATH_TO_SECRET@:${SECRET_PATH}:g ${WORKDIR}/genimage.config
+}
 
 # Aggregate all boot files into a dedicated vfat boot partition
 fakeroot do_genimage:prepend () {
