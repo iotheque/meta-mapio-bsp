@@ -1,4 +1,4 @@
-FILESEXTRAPATHS:prepend = "${THISDIR}/${PN}_${PV}/:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}_${PV}/:"
 
 SRC_URI:append = " \
     file://defconfig \
