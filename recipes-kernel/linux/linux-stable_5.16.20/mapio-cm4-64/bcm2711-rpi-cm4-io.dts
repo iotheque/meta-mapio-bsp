@@ -18,6 +18,13 @@
 			linux,default-trigger = "default-on";
 		};
 	};
+
+	fan0: gpio-fan@0 {
+		compatible = "gpio-fan";
+		gpios = <&gpio 12 0>;
+		gpio-fan,speed-map = <0    0>, <5000 1>;
+		#cooling-cells = <2>;
+	};
 };
 
 &ddc0 {
@@ -135,4 +142,20 @@
 
 &vec {
 	status = "disabled";
+};
+
+&cpu_thermal {
+	trips {
+		cpu_hot: trip-point@0 {
+			temperature = <55000>;	/* (millicelsius) Fan started at 55°C */
+			hysteresis = <10000>;	/* (millicelsius) Fan stopped at 45°C */
+			type = "active";
+			};
+		};
+	cooling-maps {
+		map0 {
+			trip = <&cpu_hot>;
+			cooling-device = <&fan0 1 1>;
+			};
+		};
 };
