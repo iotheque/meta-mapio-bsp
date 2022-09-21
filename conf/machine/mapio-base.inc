@@ -26,9 +26,14 @@ KERNEL_IMAGETYPE_DIRECT = "Image"
 #
 # Firmwares
 #
-MACHINE_EXTRA_RRECOMMENDS = " \
+MACHINE_FEATURES += "pci"
+MACHINE_EXTRA_RRECOMMENDS += " \
     kernel-modules \
     linux-firmware-bcm43455 \
+    linux-firmware-rpidistro-bcm43455 \
+    bluez-firmware-rpidistro-bcm4345c0-hcd \
+    linux-firmware-rpidistro-bcm43456 \
+    bluez-firmware-rpidistro-bcm4345c5-hcd \
     udev-rules-rpi \
 "
 
