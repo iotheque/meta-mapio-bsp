@@ -9,3 +9,5 @@ tmpfs                /var/volatile        tmpfs      defaults              0  0
 # Mount boot partition
 /dev/mmcblk1p1       /boot          auto       defaults  1  1
 
+# Mount data partition
+/dev/mmcblk1p4       /usr/local     auto       defaults  1  1

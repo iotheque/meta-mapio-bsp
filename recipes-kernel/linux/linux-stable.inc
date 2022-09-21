@@ -14,7 +14,7 @@ SRC_URI = "\
     git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git;protocol=git;name=machine;nobranch=1; \
 "
 
-SRCREV = "c19a885e12f114b799b5d0d877219f0695e0d4de"
+SRCREV = "8de34ce2fdfe56c4dac639011c836ddbb4e37779"
 
 # Source directory
 S = "${WORKDIR}/git"
