@@ -21,7 +21,7 @@
 
 	fan0: gpio-fan@0 {
 		compatible = "gpio-fan";
-		gpios = <&gpio 12 0>;
+		gpios = <&gpio 23 0>;
 		gpio-fan,speed-map = <0    0>, <5000 1>;
 		#cooling-cells = <2>;
 	};
