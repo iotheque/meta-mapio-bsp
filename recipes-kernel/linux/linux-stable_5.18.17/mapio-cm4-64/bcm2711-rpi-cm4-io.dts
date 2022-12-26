@@ -106,15 +106,15 @@
 			  "RGMII_TXD1",
 			  "RGMII_TXD2",
 			  "RGMII_TXD3";
-	spi0_pins: spi0_pins {
-            brcm,pins = <0x09 0x0a 0x0b>;
-            brcm,function = <0x04>;
+	spi6_pins: spi6_pins {
+            brcm,pins = <0x13 0x14 0x15>;
+            brcm,function = <BCM2835_FSEL_ALT3>;
             phandle = <0x0d>;
 	};
     
-    spi0_cs_pins: spi0_cs_pins {
-            brcm,pins = <0x08 0x07>;
-            brcm,function = <0x01>;
+    spi6_cs_pins: spi6_cs_pins {
+            brcm,pins = <0x10>;
+            brcm,function = <BCM2835_FSEL_GPIO_OUT>;
             phandle = <0x0e>;
     };
 
@@ -156,10 +156,10 @@
 	status = "disabled";
 };
 
-&spi {
+&spi6 {
 	pinctrl-names = "default";
-	pinctrl-0 = <&spi0_pins &spi0_cs_pins>;
-    cs-gpios = <&gpio 8 1>, <&gpio 7 1>;
+	pinctrl-0 = <&spi6_pins &spi6_cs_pins>;
+    cs-gpios = <&gpio 16 1>;
 
 	status = "okay";
 
