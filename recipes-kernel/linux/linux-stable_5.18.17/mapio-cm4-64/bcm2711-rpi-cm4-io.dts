@@ -199,3 +199,10 @@
         pinctrl-0 = <&uart5_gpio12>;
         status = "okay";
 };
+
+&i2c5 {
+        pinctrl-names = "default";
+        pinctrl-0 = <&i2c5_gpio10>;
+        status = "okay";
+        clock-frequency = <100000>;
+};
