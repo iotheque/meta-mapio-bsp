@@ -4,7 +4,13 @@
 #include "bcm283x-rpi-usb-host.dtsi"
 
 / {
-	model = "Raspberry Pi Compute Module 4 IO Board";
+	model = "Mapio Board";
+
+	aliases {
+		i2c5 = &i2c5;
+		serial4 = &uart4;
+		serial5 = &uart5;
+		};
 
 	leds {
 		led-act {
@@ -109,23 +115,21 @@
 	spi6_pins: spi6_pins {
             brcm,pins = <0x13 0x14 0x15>;
             brcm,function = <BCM2835_FSEL_ALT3>;
-            phandle = <0x0d>;
 	};
     
     spi6_cs_pins: spi6_cs_pins {
             brcm,pins = <0x10>;
             brcm,function = <BCM2835_FSEL_GPIO_OUT>;
-            phandle = <0x0e>;
-    };
+	};
 
 };
 
 &hdmi0 {
-	status = "okay";
+	status = "disabled";
 };
 
 &hdmi1 {
-	status = "okay";
+	status = "disabled";
 };
 
 &genet {
@@ -133,23 +137,23 @@
 };
 
 &pixelvalve0 {
-	status = "okay";
+	status = "disabled";
 };
 
 &pixelvalve1 {
-	status = "okay";
+	status = "disabled";
 };
 
 &pixelvalve2 {
-	status = "okay";
+	status = "disabled";
 };
 
 &pixelvalve4 {
-	status = "okay";
+	status = "disabled";
 };
 
 &vc4 {
-	status = "okay";
+	status = "disabled";
 };
 
 &vec {
@@ -199,6 +203,35 @@
         pinctrl-0 = <&uart5_gpio12>;
         status = "okay";
 };
+
+&ddc0 {
+	status = "disabled";
+};
+
+&ddc1 {
+	status = "disabled";
+};
+
+&i2c0 {
+	status = "disabled";
+};
+
+&i2c1 {
+	status = "disabled";
+};
+
+&i2c3 {
+	status = "disabled";
+};
+
+&i2c4 {
+	status = "disabled";
+};
+
+&i2c6 {
+	status = "disabled";
+};
+
 
 &i2c5 {
         pinctrl-names = "default";
