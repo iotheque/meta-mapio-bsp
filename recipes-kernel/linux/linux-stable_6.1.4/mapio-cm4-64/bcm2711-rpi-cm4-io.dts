@@ -118,7 +118,7 @@
 	};
     
     spi6_cs_pins: spi6_cs_pins {
-            brcm,pins = <0x10>;
+            brcm,pins = <0x2>;
             brcm,function = <BCM2835_FSEL_GPIO_OUT>;
 	};
 
@@ -163,7 +163,7 @@
 &spi6 {
 	pinctrl-names = "default";
 	pinctrl-0 = <&spi6_pins &spi6_cs_pins>;
-    cs-gpios = <&gpio 16 1>;
+    cs-gpios = <&gpio 2 1>;
 
 	status = "okay";
 
