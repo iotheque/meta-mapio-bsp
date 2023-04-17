@@ -2,6 +2,7 @@
 /dts-v1/;
 #include "bcm2711-rpi-cm4.dtsi"
 #include "bcm283x-rpi-usb-host.dtsi"
+#include <dt-bindings/leds/common.h>
 
 / {
     model = "Mapio Board";
@@ -25,6 +26,73 @@
         };
     };
 
+    leds-expander {
+        compatible = "gpio-leds";
+
+        led2-r {
+            label = "LED2_R";
+            gpios = <&pca6416_1 7 GPIO_ACTIVE_LOW>;
+            color = <LED_COLOR_ID_RED>;
+            default-state = "off";
+        };
+
+        led2-g {
+            label = "LED2_G";
+            gpios = <&pca6416_1 8 GPIO_ACTIVE_LOW>;
+            color = <LED_COLOR_ID_GREEN>;
+            default-state = "off";
+        };
+
+        led2-b {
+            label = "LED2_B";
+            gpios = <&pca6416_1 9 GPIO_ACTIVE_LOW>;
+            color = <LED_COLOR_ID_BLUE>;
+            default-state = "off";
+        };
+
+        led1-r {
+            label = "LED1_R";
+            gpios = <&pca6416_1 10 GPIO_ACTIVE_LOW>;
+            color = <LED_COLOR_ID_RED>;
+            default-state = "off";
+        };
+
+        led1-g {
+            label = "LED1_G";
+            gpios = <&pca6416_1 11 GPIO_ACTIVE_LOW>;
+            color = <LED_COLOR_ID_GREEN>;
+            default-state = "off";
+        };
+
+        led1-b {
+            label = "LED1_B";
+            gpios = <&pca6416_1 12 GPIO_ACTIVE_LOW>;
+            color = <LED_COLOR_ID_BLUE>;
+            default-state = "off";
+        };
+
+        led3-r {
+            label = "LED3_R";
+            gpios = <&pca6416_1 13 GPIO_ACTIVE_LOW>;
+            color = <LED_COLOR_ID_RED>;
+            default-state = "off";
+        };
+
+        led3-g {
+            label = "LED3_G";
+            gpios = <&pca6416_1 14 GPIO_ACTIVE_LOW>;
+            color = <LED_COLOR_ID_GREEN>;
+            default-state = "off";
+        };
+
+        led3-b {
+            label = "LED3_B";
+            gpios = <&pca6416_1 15 GPIO_ACTIVE_LOW>;
+            color = <LED_COLOR_ID_BLUE>;
+            default-state = "off";
+        };
+    };
+
     fan0: gpio-fan@0 {
         compatible = "gpio-fan";
         gpios = <&gpio 23 0>;
@@ -42,14 +110,6 @@
 };
 
 &gpio {
-    /*
-     * Parts taken from rpi_SCH_4b_4p0_reduced.pdf and
-     * the official GPU firmware DT blob.
-     *
-     * Legend:
-     * "FOO" = GPIO line named "FOO" on the schematic
-     * "FOO_N" = GPIO line named "FOO" on schematic, active low
-     */
     gpio-line-names = "ID_SDA",
               "ID_SCL",
               "GPIO2",
