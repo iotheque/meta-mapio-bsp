@@ -184,6 +184,11 @@
             brcm,function = <BCM2835_FSEL_GPIO_OUT>;
     };
 
+    pca6416_0_it_pin: pca6416_0_it_pin {
+            brcm,pins = <0x10>;
+            brcm,function = <BCM2835_FSEL_GPIO_IN>;
+            brcm,pull = <BCM2835_PUD_UP>;
+    };
 };
 
 &hdmi0 {
@@ -317,7 +322,11 @@
                 compatible = "nxp,pcal6416";
                 reg = <0x20>;
                 gpio-controller;
+                pinctrl-names = "default";
+                pinctrl-0 = <&pca6416_0_it_pin>;
                 #gpio-cells = <2>;
+                interrupt-parent = <&gpio>;
+                interrupts = <16 IRQ_TYPE_LEVEL_LOW>;
                 gpio-line-names = 
                 "BUTTON_DOWN",
                 "BUTTON_UP",
