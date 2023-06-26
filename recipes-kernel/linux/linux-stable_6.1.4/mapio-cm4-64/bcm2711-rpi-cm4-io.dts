@@ -1,0 +1,372 @@
+// SPDX-License-Identifier: GPL-2.0
+/dts-v1/;
+#include "bcm2711-rpi-cm4.dtsi"
+#include "bcm283x-rpi-usb-host.dtsi"
+#include <dt-bindings/leds/common.h>
+
+/ {
+    model = "Mapio Board";
+
+    aliases {
+        i2c5 = &i2c5;
+        serial1 = &uart1;
+        serial3 = &uart3;
+        serial4 = &uart4;
+        serial5 = &uart5;
+        };
+
+    leds {
+        led-act {
+            gpios = <&gpio 42 GPIO_ACTIVE_HIGH>;
+        };
+
+        led-pwr {
+            label = "PWR";
+            gpios = <&expgpio 2 GPIO_ACTIVE_LOW>;
+            default-state = "keep";
+            linux,default-trigger = "default-on";
+        };
+    };
+
+    leds-expander {
+        compatible = "gpio-leds";
+
+        led2-r {
+            label = "LED2_R";
+            gpios = <&pca6416_1 7 GPIO_ACTIVE_LOW>;
+            color = <LED_COLOR_ID_RED>;
+            default-state = "off";
+        };
+
+        led2-g {
+            label = "LED2_G";
+            gpios = <&pca6416_1 8 GPIO_ACTIVE_LOW>;
+            color = <LED_COLOR_ID_GREEN>;
+            default-state = "off";
+        };
+
+        led2-b {
+            label = "LED2_B";
+            gpios = <&pca6416_1 9 GPIO_ACTIVE_LOW>;
+            color = <LED_COLOR_ID_BLUE>;
+            default-state = "off";
+        };
+
+        led1-r {
+            label = "LED1_R";
+            gpios = <&pca6416_1 10 GPIO_ACTIVE_LOW>;
+            color = <LED_COLOR_ID_RED>;
+            default-state = "off";
+        };
+
+        led1-g {
+            label = "LED1_G";
+            gpios = <&pca6416_1 11 GPIO_ACTIVE_LOW>;
+            color = <LED_COLOR_ID_GREEN>;
+            default-state = "off";
+        };
+
+        led1-b {
+            label = "LED1_B";
+            gpios = <&pca6416_1 12 GPIO_ACTIVE_LOW>;
+            color = <LED_COLOR_ID_BLUE>;
+            default-state = "off";
+        };
+
+        led3-r {
+            label = "LED3_R";
+            gpios = <&pca6416_1 13 GPIO_ACTIVE_LOW>;
+            color = <LED_COLOR_ID_RED>;
+            default-state = "off";
+        };
+
+        led3-g {
+            label = "LED3_G";
+            gpios = <&pca6416_1 14 GPIO_ACTIVE_LOW>;
+            color = <LED_COLOR_ID_GREEN>;
+            default-state = "off";
+        };
+
+        led3-b {
+            label = "LED3_B";
+            gpios = <&pca6416_1 15 GPIO_ACTIVE_LOW>;
+            color = <LED_COLOR_ID_BLUE>;
+            default-state = "off";
+        };
+    };
+
+    fan0: gpio-fan@0 {
+        compatible = "gpio-fan";
+        gpios = <&gpio 23 0>;
+        gpio-fan,speed-map = <0    0>, <5000 1>;
+        #cooling-cells = <2>;
+    };
+};
+
+&ddc0 {
+    status = "okay";
+};
+
+&ddc1 {
+    status = "okay";
+};
+
+&gpio {
+    gpio-line-names = "ID_SDA",
+              "ID_SCL",
+              "GPIO2",
+              "GPIO3",
+              "TXD3",
+              "GPIO5",
+              "GPIO6",
+              "GPIO7",
+              "RS485_TX",
+              "RS485_RX",
+              "SDA5",
+              "SCL5",
+              "TXD5",
+              "RXD5",
+              /* Serial port */
+              "TXD1",
+              "RXD1",
+              "GPIO16",
+              "GPIO17",
+              "GPIO18",
+              "SPI6_MISO",
+              "SPI6_MOSI",
+              "SPI6_SCLK",
+              "GPIO22",
+              "FAN_PWM",
+              "RELAY2_CTRL",
+              "RELAY1_CTRL",
+              "GPIO26",
+              "GPIO27",
+              "RGMII_MDIO",
+              "RGMIO_MDC",
+              /* Used by BT module */
+              "CTS0",
+              "RTS0",
+              "TXD0",
+              "RXD0",
+              /* Used by Wifi */
+              "SD1_CLK",
+              "SD1_CMD",
+              "SD1_DATA0",
+              "SD1_DATA1",
+              "SD1_DATA2",
+              "SD1_DATA3",
+              /* Shared with SPI flash */
+              "PWM0_MISO",
+              "PWM1_MOSI",
+              "STATUS_LED_G_CLK",
+              "SPIFLASH_CE_N",
+              "SDA0",
+              "SCL0",
+              "RGMII_RXCLK",
+              "RGMII_RXCTL",
+              "RGMII_RXD0",
+              "RGMII_RXD1",
+              "RGMII_RXD2",
+              "RGMII_RXD3",
+              "RGMII_TXCLK",
+              "RGMII_TXCTL",
+              "RGMII_TXD0",
+              "RGMII_TXD1",
+              "RGMII_TXD2",
+              "RGMII_TXD3";
+    spi6_pins: spi6_pins {
+            brcm,pins = <0x13 0x14 0x15>;
+            brcm,function = <BCM2835_FSEL_ALT3>;
+    };
+    
+    spi6_cs_pins: spi6_cs_pins {
+            brcm,pins = <0x2>;
+            brcm,function = <BCM2835_FSEL_GPIO_OUT>;
+    };
+
+    pca6416_0_it_pin: pca6416_0_it_pin {
+            brcm,pins = <0x10>;
+            brcm,function = <BCM2835_FSEL_GPIO_IN>;
+            brcm,pull = <BCM2835_PUD_UP>;
+    };
+};
+
+&hdmi0 {
+    status = "disabled";
+};
+
+&hdmi1 {
+    status = "disabled";
+};
+
+&genet {
+    status = "okay";
+};
+
+&pixelvalve0 {
+    status = "disabled";
+};
+
+&pixelvalve1 {
+    status = "disabled";
+};
+
+&pixelvalve2 {
+    status = "disabled";
+};
+
+&pixelvalve4 {
+    status = "disabled";
+};
+
+&vc4 {
+    status = "disabled";
+};
+
+&vec {
+    status = "disabled";
+};
+
+&spi6 {
+    pinctrl-names = "default";
+    pinctrl-0 = <&spi6_pins &spi6_cs_pins>;
+    cs-gpios = <&gpio 2 1>;
+
+    status = "okay";
+
+    spidev0: spidev@0{
+                 compatible = "lwn,bk4";
+                 reg = <0>;      /* CE0 */
+                 #address-cells = <1>;
+                 #size-cells = <0>;
+                 spi-max-frequency = <4000000>;
+             };
+};
+
+&cpu_thermal {
+    trips {
+        cpu_hot: trip-point@0 {
+            temperature = <55000>;    /* (millicelsius) Fan started at 55°C */
+            hysteresis = <10000>;    /* (millicelsius) Fan stopped at 45°C */
+            type = "active";
+            };
+        };
+    cooling-maps {
+        map0 {
+            trip = <&cpu_hot>;
+            cooling-device = <&fan0 1 1>;
+            };
+        };
+};
+
+&uart1 {
+        pinctrl-names = "default";
+        pinctrl-0 = <&uart1_gpio14>;
+        status = "okay";
+};
+
+&uart3 {
+        pinctrl-names = "default";
+        pinctrl-0 = <&uart3_gpio4>;
+        status = "okay";
+};
+
+&uart4 {
+        pinctrl-names = "default";
+        pinctrl-0 = <&uart4_gpio8>;
+        status = "okay";
+};
+
+&uart5 {
+        pinctrl-names = "default";
+        pinctrl-0 = <&uart5_gpio12>;
+        status = "okay";
+};
+
+&ddc0 {
+    status = "disabled";
+};
+
+&ddc1 {
+    status = "disabled";
+};
+
+&i2c0 {
+    status = "disabled";
+};
+
+&i2c1 {
+    status = "disabled";
+};
+
+&i2c3 {
+    status = "disabled";
+};
+
+&i2c4 {
+    status = "disabled";
+};
+
+&i2c6 {
+    status = "disabled";
+};
+
+
+&i2c5 {
+        pinctrl-names = "default";
+        pinctrl-0 = <&i2c5_gpio10>;
+        status = "okay";
+        clock-frequency = <100000>;
+
+        pca6416_0: gpio@20 {
+                compatible = "nxp,pcal6416";
+                reg = <0x20>;
+                gpio-controller;
+                pinctrl-names = "default";
+                pinctrl-0 = <&pca6416_0_it_pin>;
+                #gpio-cells = <2>;
+                interrupt-parent = <&gpio>;
+                interrupts = <16 IRQ_TYPE_LEVEL_LOW>;
+                gpio-line-names = 
+                "BUTTON_DOWN",
+                "BUTTON_UP",
+                "RADIO4_EN",
+                "RADIO4_INT",
+                "RADIO4_CS_N",
+                "RADIO4_RST_N",
+                "RADIO3_INT",
+                "RADIO1_INT",
+                "RADIO2_INT",
+                "RADIO2_EN",
+                "RADIO2_CS_N",
+                "RADIO3_INT_2",
+                "P_BUSY",
+                "P_RST",
+                "P_DC",
+                "CH_INT";
+        };
+
+        pca6416_1: gpio@21 {
+                compatible = "nxp,pcal6416";
+                reg = <0x21>;
+                gpio-controller;
+                #gpio-cells = <2>;
+				gpio-line-names = 
+                "RADIO2_RST_N",
+                "RADIO3_EN",
+                "RADIO1_EN",
+                "RADIO1_CS_N",
+                "RADIO1_RST_N",
+                "RADIO3_CS_N",
+                "RADIO3_RST_N",
+                "LED2_R",
+                "LED2_G",
+                "LED2_B",
+                "LED1_R",
+                "LED1_G",
+                "LED1_B",
+                "LED3_R",
+                "LED3_G",
+                "LED3_B";
+        };
+};
