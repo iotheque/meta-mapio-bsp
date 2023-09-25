@@ -10,13 +10,13 @@ for BOOT_SLOT in "${BOOT_ORDER}"; do
     if test ${BOOT_A_LEFT} -gt 0; then
       echo "Found valid slot A, ${BOOT_A_LEFT} attempts remaining"
       setexpr BOOT_A_LEFT ${BOOT_A_LEFT} - 1
-      setenv bootargs "console=ttyS1,115200 root=/dev/mmcblk1p2 rw rootwait rauc.slot=A audit=0"
+      setenv bootargs "console=${SERIAL_CONSOLE} root=/dev/mmcblk1p2 rw rootwait rauc.slot=A audit=0"
     fi
   elif test "x${BOOT_SLOT}" = "xB"; then
     if test ${BOOT_B_LEFT} -gt 0; then
       echo "Found valid slot B, ${BOOT_B_LEFT} attempts remaining"
       setexpr BOOT_B_LEFT ${BOOT_B_LEFT} - 1
-      setenv bootargs "console=ttyS1,115200 root=/dev/mmcblk1p3 rw rootwait rauc.slot=B audit=0"
+      setenv bootargs "console=${SERIAL_CONSOLE} root=/dev/mmcblk1p3 rw rootwait rauc.slot=B audit=0"
     fi
   fi
 done
