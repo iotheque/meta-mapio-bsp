@@ -131,7 +131,7 @@
               "RXD1",
               "GPIO16",
               "GPIO17",
-              "GPIO18",
+              "BUTTON_MID",
               "SPI6_MISO",
               "SPI6_MOSI",
               "SPI6_SCLK",
@@ -336,14 +336,14 @@
                 "RADIO4_RST_N",
                 "RADIO3_INT",
                 "RADIO1_INT",
-                "RADIO2_INT",
-                "RADIO2_EN",
-                "RADIO2_CS_N",
-                "RADIO3_INT_2",
+                "CHG_CHG_N",
+                "CHG_ACOK_N",
+                "CHG_BOOST_N",
+                "P1_3",
                 "P_BUSY",
                 "P_RST",
                 "P_DC",
-                "CH_INT";
+                "P1_7";
         };
 
         pca6416_1: gpio@21 {
@@ -352,7 +352,7 @@
                 gpio-controller;
                 #gpio-cells = <2>;
 				gpio-line-names = 
-                "RADIO2_RST_N",
+                "P0_0",
                 "RADIO3_EN",
                 "RADIO1_EN",
                 "RADIO1_CS_N",
