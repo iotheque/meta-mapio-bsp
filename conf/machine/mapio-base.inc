@@ -1,5 +1,5 @@
-# Only build ext4 and tar.bz2 for 'genimage'
-IMAGE_FSTYPES = "ext4 tar.bz2"
+# Image FS
+IMAGE_FSTYPES = "ext4 wic wic.bz2"
 
 # No splash screen
 unset SPLASH
@@ -51,12 +51,3 @@ RPI_DEVICETREE = "bcm2711-rpi-cm4-io.dtb"
 
 # Where downloaded Raspberry bootfiles are extracted
 BOOTFILES_DIR_NAME = "${MACHINE}-bootfiles"
-
-# MAPIO_BOOT_FILES is similar to IMAGE_BOOT_FILES with separator ';' replaced
-# by ':'. ';' separator cannot be used in shell functions.
-MAPIO_BOOT_FILES = " \
-    ${BOOTFILES_DIR_NAME}/config.txt \
-    boot.scr \
-    Image \
-    u-boot.bin \
-"
