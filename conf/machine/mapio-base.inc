@@ -5,7 +5,6 @@ IMAGE_FSTYPES = "ext4 tar.bz2"
 unset SPLASH
 DISABLE_SPLASH = "1"
 
-RPI_CONFIG_STRIP = "1"
 
 # Enable USB 2.0 ports as host
 ENABLE_DWC2_HOST = "1"
@@ -42,6 +41,8 @@ MACHINE_EXTRA_RRECOMMENDS += " \
 #
 # Always turn on UART for debug
 ENABLE_UART = "1"
+# Default console (rpiboot, uboot, kernel) is on ttyS1
+SERIAL_CONSOLES = "ttyS0,115200"
 # RPi should boot bootloader instead of linux kernel
 RPI_KERNEL = "u-boot.bin"
 # Remove comments from config.txt
