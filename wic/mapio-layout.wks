@@ -4,6 +4,6 @@
 
 part /boot --source bootimg-partition --ondisk mmcblk0 --fstype=vfat --label boot --active --align 4096 --fixed-size 65536k
 part / --source rootfs --ondisk mmcblk0 --fstype=ext4 --label rootfs0 --align 4096 --fixed-size 716800k
-part --source rootfs --ondisk mmcblk0 --fstype=ext4 --label rootfs1 --align 4096 --fixed-size 716800k
+part --ondisk mmcblk0 --fstype=ext4 --label rootfs1 --align 4096 --fixed-size 716800k
 part /usr/local --source rootfs --rootfs-dir=${IMAGE_ROOTFS}/data --fstype=ext4 --label data --use-uuid --align 4096
 
