@@ -2,6 +2,7 @@ fdt addr ${fdt_addr} && fdt get value bootargs /chosen bootargs
 test -n "${BOOT_ORDER}" || setenv BOOT_ORDER "A B"
 test -n "${BOOT_A_LEFT}" || setenv BOOT_A_LEFT 3
 test -n "${BOOT_B_LEFT}" || setenv BOOT_B_LEFT 3
+test -n "${SERIAL_CONSOLE}" || setenv SERIAL_CONSOLE "ttyS0,115200"
 setenv bootargs
 for BOOT_SLOT in "${BOOT_ORDER}"; do
   if test "x${bootargs}" != "x"; then
