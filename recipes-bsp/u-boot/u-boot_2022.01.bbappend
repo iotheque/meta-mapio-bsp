@@ -5,6 +5,7 @@ DEPENDS:append = " u-boot-default-script"
 SRC_URI:append = " \
     file://fw_env.config \
     file://0001-feat-set-magic-word-to-stop-boot.patch \
+    file://0001-fix-disable-bus-enum-usb-and-pci-at-boot-to-avoid-cu.patch \
 "
 
 do_configure:prepend() {
