@@ -17,6 +17,7 @@ SRC_URI = "\
 SRCREV = "cd5d98c0556cd790f78a3ba26afc9d2f896163e4"
 
 # Source directory
+# nooelint: oelint.vars.unpackdir
 S = "${WORKDIR}/git"
 
 LINUX_VERSION ?= "${PV}"
