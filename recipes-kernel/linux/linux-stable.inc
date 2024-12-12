@@ -14,7 +14,7 @@ SRC_URI = "\
     git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git;protocol=git;name=machine;nobranch=1; \
 "
 
-SRCREV = "cd5d98c0556cd790f78a3ba26afc9d2f896163e4"
+SRCREV = "943e0aeece93a9c2329215d02621e634adf6d790"
 
 # Source directory
 # nooelint: oelint.vars.unpackdir
