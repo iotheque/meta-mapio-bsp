@@ -1,0 +1,83 @@
+From 5a9de99d9694ea61ede31604f856b7a4dd882c1e Mon Sep 17 00:00:00 2001
+From: Pierrick Curt <pierrickcurt@gmail.com>
+Date: Sun, 9 Feb 2025 13:01:16 +0000
+Subject: [PATCH] feat: configure dts for MAPIO board
+
+---
+Upstream-Status: Inappropriate [Specific configurtion for MAPIO board.]
+
+---
+ arch/arm/dts/bcm2711-rpi-4-b.dts | 28 ++++++++--------------------
+ 1 file changed, 8 insertions(+), 20 deletions(-)
+
+diff --git a/arch/arm/dts/bcm2711-rpi-4-b.dts b/arch/arm/dts/bcm2711-rpi-4-b.dts
+index 72ce80fbf2..edbf8a4722 100644
+--- a/arch/arm/dts/bcm2711-rpi-4-b.dts
++++ b/arch/arm/dts/bcm2711-rpi-4-b.dts
+@@ -6,7 +6,7 @@
+ 
+ / {
+ 	compatible = "raspberrypi,4-model-b", "brcm,bcm2711";
+-	model = "Raspberry Pi 4 Model B";
++	model = "MAPIO Board";
+ 
+ 	chosen {
+ 		/* 8250 auxiliary UART instead of pl011 */
+@@ -149,27 +149,27 @@
+ };
+ 
+ &hdmi0 {
+-	status = "okay";
++	status = "disabled";
+ };
+ 
+ &hdmi1 {
+-	status = "okay";
++	status = "disabled";
+ };
+ 
+ &pixelvalve0 {
+-	status = "okay";
++	status = "disabled";
+ };
+ 
+ &pixelvalve1 {
+-	status = "okay";
++	status = "disabled";
+ };
+ 
+ &pixelvalve2 {
+-	status = "okay";
++	status = "disabled";
+ };
+ 
+ &pixelvalve4 {
+-	status = "okay";
++	status = "disabled";
+ };
+ 
+ &pwm1 {
+@@ -217,19 +217,7 @@
+ };
+ 
+ &pcie0 {
+-	pci@0,0 {
+-		device_type = "pci";
+-		#address-cells = <3>;
+-		#size-cells = <2>;
+-		ranges;
+-
+-		reg = <0 0 0 0 0>;
+-
+-		usb@0,0 {
+-			reg = <0 0 0 0 0>;
+-			resets = <&reset RASPBERRYPI_FIRMWARE_RESET_ID_USB>;
+-		};
+-	};
++	status = "disabled";
+ };
+ 
+ /* uart0 communicates with the BT module */
+-- 
+2.43.0
+
