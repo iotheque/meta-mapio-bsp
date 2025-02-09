@@ -18,7 +18,6 @@ PREFERRED_PROVIDER_u-boot-default-script = "u-boot-scr"
 #
 # Kernel
 #
-PREFERRED_PROVIDER_virtual/kernel = "linux-stable"
 RPI_KERNEL_DEVICETREE_OVERLAYS = ""
 KERNEL_IMAGETYPE_DIRECT = "Image"
 
