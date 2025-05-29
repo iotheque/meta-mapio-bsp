@@ -16,14 +16,21 @@
         };
 
     leds {
+        compatible = "gpio-leds";
+
         led-act {
+            label = "ACT";
             gpios = <&gpio 42 GPIO_ACTIVE_HIGH>;
+            default-state = "keep";
+            color = <LED_COLOR_ID_RED>;
+            linux,default-trigger = "heartbeat";
         };
 
         led-pwr {
             label = "PWR";
             gpios = <&expgpio 2 GPIO_ACTIVE_LOW>;
             default-state = "keep";
+            color = <LED_COLOR_ID_GREEN>;
             linux,default-trigger = "default-on";
         };
     };
