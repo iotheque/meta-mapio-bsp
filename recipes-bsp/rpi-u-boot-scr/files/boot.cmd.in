@@ -25,11 +25,11 @@ done
 if test -n "${bootargs}"; then
   saveenv
 else
-  echo "No valid slot found, resetting tries to 3"
+  echo "No valid slot found, try to force boot on partition A"
   setenv BOOT_A_LEFT 3
   setenv BOOT_B_LEFT 3
+  setenv bootargs "8250.nr_uarts=2 console=${SERIAL_CONSOLE} root=/dev/mmcblk1p2 rw rootwait rauc.slot=A audit=0"
   saveenv
-  reset
 fi
 
 fatload mmc ${devnum}:${distro_bootpart} ${kernel_addr_r} @@KERNEL_IMAGETYPE@@
