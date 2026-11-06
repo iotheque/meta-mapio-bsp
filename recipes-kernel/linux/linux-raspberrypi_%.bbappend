@@ -2,6 +2,7 @@ FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
 
 SRC_URI:append = " \
     file://bcm2711-rpi-cm4-io.dts \
+    file://netfilter-raw.cfg \
 "
 
 do_configure:prepend() {

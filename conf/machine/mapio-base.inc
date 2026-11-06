@@ -50,3 +50,7 @@ RPI_DEVICETREE = "bcm2711-rpi-cm4-io.dtb"
 
 # Where downloaded Raspberry bootfiles are extracted
 BOOTFILES_DIR_NAME = "${MACHINE}-bootfiles"
+
+# The kernel image is installed into the FAT32 boot partition and does not need
+# to also be installed into the rootfs.
+RDEPENDS:${KERNEL_PACKAGE_NAME}-base = ""
