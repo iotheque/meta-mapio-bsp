@@ -5,5 +5,5 @@ SRC_URI:append = " \
 "
 
 do_configure:prepend() {
-    cp ${WORKDIR}/bcm2711-rpi-cm4-io.dts ${S}/arch/arm/boot/dts/broadcom/bcm2711-rpi-cm4-io.dts
+    cp ${UNPACKDIR}/bcm2711-rpi-cm4-io.dts ${S}/arch/arm/boot/dts/broadcom/bcm2711-rpi-cm4-io.dts
 }
